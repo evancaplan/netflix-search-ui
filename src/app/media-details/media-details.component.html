@@ -1,0 +1,41 @@
+<!-- src/app/details/details.component.html -->
+<div class="progress-spinner" *ngIf="isLoading">
+  <p-progressSpinner animationDuration="5s"></p-progressSpinner>
+</div>
+
+<div class="details-container" *ngIf="mediaDetails">
+  <div class="poster">
+    <a routerLink="/"><i class="pi pi-arrow-left" style="color: slateblue; margin-bottom: 5%"> Search</i></a>
+    <img [src]="mediaDetails.imdbposter != 'N/A' ? mediaDetails.imdbposter : mediaDetails.lgimg" [alt]="mediaDetails.title" />
+  </div>
+  <div class="info">
+    <h1>{{ mediaDetails.title }} <small>({{ mediaDetails.year }})</small></h1>
+    <div class="rating">
+      <strong>IMDb Rating:</strong> {{ mediaDetails.imdbrating }}/10 ({{ mediaDetails.imdbvotes }} votes)
+    </div>
+    <div class="runtime">
+      <strong>Runtime:</strong> {{ mediaDetails.netflixruntime !== 0 ? mediaDetails.netflixruntime + ' minutes': mediaDetails.imdbruntime }}
+    </div>
+    <div class="genre">
+      <strong>Genre:</strong> {{ mediaDetails.imdbgenre }}
+    </div>
+    <div class="language">
+      <strong>Language:</strong> {{ mediaDetails.imdblanguage }}
+    </div>
+    <div class="country">
+      <strong>Country:</strong> {{ mediaDetails.imdbcountry }}
+    </div>
+    <div class="awards">
+      <strong>Awards:</strong> {{ mediaDetails.imdbawards }}
+    </div>
+    <div class="synopsis">
+      <h2>Synopsis</h2>
+      <p>{{ mediaDetails.synopsis }}</p>
+    </div>
+
+    <div class="synopsis" *ngIf="mediaDetails.imdbplot">
+      <h2>Plot</h2>
+      <p>{{ mediaDetails.imdbplot }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<!-- src/app/results/results.component.html -->
+<div class="progress-spinner" *ngIf="isLoading">
+  <p-progressSpinner animationDuration="5s"></p-progressSpinner>
+</div>
+<div class="results-container" *ngIf="!isLoading">
+  <p-paginator [rows]="rows" [first]="first" [totalRecords]="total" (onPageChange)="onPageChange($event)"></p-paginator>
+  <div class="cards">
+    <div class="card" *ngFor="let media of mediaList" (click)="goToDetails(media)">
+      <div class="card-inner">
+        <div class="card-front">
+          <img [src]="media.img" [alt]="media.title"/>
+          <div class="info">
+            <h3>{{ media.title }}</h3>
+            <p>{{ media.year }}</p>
+          </div>
+          <div class="synopsis">{{ media.synopsis }}</div>
+          <div class="rating"><strong>Rating: {{ media.imdbrating }} / 10</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-paginator [rows]="rows" [first]="first" [totalRecords]="total" (onPageChange)="onPageChange($event)"></p-paginator>
+</div>

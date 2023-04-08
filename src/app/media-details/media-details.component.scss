@@ -1,0 +1,63 @@
+.details-container {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+
+  .poster {
+    max-width: 300px;
+    img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+
+  .info {
+    flex: 1;
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .rating,
+    .runtime,
+    .genre,
+    .language,
+    .country,
+    .awards {
+      margin-bottom: 0.5rem;
+    }
+
+    .synopsis {
+      margin-top: 1rem;
+
+      h2 {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.progress-spinner {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.progress-spinner:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.53);
+}

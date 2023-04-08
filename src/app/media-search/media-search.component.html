@@ -1,0 +1,58 @@
+<!-- src/app/search/search.component.html -->
+<div class="search-container">
+  <h2>Common Netflix Search</h2>
+  <div class="inputs">
+    <p-dropdown
+      [(ngModel)]="selectedCountryOne"
+      [options]="countries"
+      optionLabel="Name"
+      placeholder="Select Country"
+      [style]="{ width: '200px' }"
+    >
+      <ng-template let-country pTemplate="selectedItem">
+        <span class="flag-icon flag-icon-{{ country?.Code.toLowerCase() }}"></span>
+        {{ country.Name }}
+      </ng-template>
+      <ng-template let-country pTemplate="item">
+        <span class="flag-icon flag-icon-{{ country?.Code.toLowerCase() }}"></span>
+        {{ country.Name }}
+      </ng-template>
+    </p-dropdown>
+    <p-dropdown
+      [(ngModel)]="selectedCountryTwo"
+      [options]="countries"
+      optionLabel="Name"
+      placeholder="Select Country"
+      [style]="{ width: '200px' }"
+    >
+      <ng-template let-country pTemplate="selectedItem">
+        <span class="flag-icon flag-icon-{{ country.Code.toLowerCase() }}"></span>
+        {{ country.Name }}
+      </ng-template>
+      <ng-template let-country pTemplate="item">
+        <span class="flag-icon flag-icon-{{ country?.Code.toLowerCase() }}"></span>
+        {{ country.Name }}
+      </ng-template>
+    </p-dropdown>
+
+    <p-dropdown
+      [(ngModel)]="selectedMediaType"
+      [options]="mediaTypes"
+      optionLabel="name"
+      placeholder="Select Type"
+      [style]="{ width: '200px' }">
+      <ng-template let-type pTemplate="selectedItem">
+        {{ type.name }}
+      </ng-template>
+      <ng-template let-type pTemplate="item">
+        {{ type.name }}
+      </ng-template>
+    </p-dropdown>
+    <button pButton type="button" label="Search" (click)="getResults()"
+            [disabled]="!selectedCountryOne || !selectedCountryTwo || !selectedMediaType"></button>
+  </div>
+</div>
+
+<div *ngIf="shouldShowResults">
+  <app-media-results [searchCriteria]="searchRequest"> </app-media-results>
+</div>

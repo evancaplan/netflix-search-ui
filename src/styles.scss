@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss */
+@import '~flag-icon-css/css/flag-icons.min.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~primeicons/primeicons.css';
+
+/* Set a soothing background color */
+body {
+  //background-color: #f0f2f5;
+  //font-family: 'Roboto', sans-serif;
+}
+
+/* Set a clean and modern typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+/* Apply a minimalist card design */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  padding: 16px;
+  transition: all 0.6s;
+  width: 500px; /* Increase the width as needed */
+  height: 500px;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+.details-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.details-poster {
+  flex: 0 0 auto;
+  max-width: 300px;
+}
+
+.details-info {
+  flex: 1 1 auto;
+}
